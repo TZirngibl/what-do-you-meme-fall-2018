@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+        <div class="container"id="app">
+            <div class="row">
+                <div class="col">
+                    <img :src="image"/>
+                    <h4>Current Player: {{currentPlayer.name}}</h4>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li v-for="player in players"@click="makeCurrent(player)">
+                            {{player.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <script>
+        const v = new Vue({
+            el: "#app",
+            data: function(){
+                return{
+                    image: "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350",
+                    players: [
+                        {name: "Tim"},
+                        {name: "Moshe"},
+                        {name: "Faizan"},
+                        {name: "Donald"}
+                    ],
+                    currentPlayer: {}
+                }
+            },
+            methods: {
+                makeCurrent: function(player){
+                    this.currentPlayer = player;
+                }
+            }
+        });
+    </script>
+  </body>
+</html>
