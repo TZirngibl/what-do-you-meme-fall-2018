@@ -25,7 +25,11 @@ class Game {
         }
     }
     flipPicture(playerId){
+<<<<<<< HEAD
         if(!this.isDealer(playerId)) { throw new Error("Only the dealer can flip a picture")}
+=======
+        //if(!this.isDealer(playerId)) { throw new Error("Only the dealer can flip a picture")}
+>>>>>>> master
         this.picture = pictures[(iPicture++) % pictures.length];
     }
     submitCaption(playerId, text){

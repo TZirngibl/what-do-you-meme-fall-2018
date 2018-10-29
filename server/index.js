@@ -3,14 +3,32 @@ const game = require('./game/controller');
 
 const app = express();
 
+<<<<<<< HEAD
 const port = 3000;
 const server = "localhost";
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use("/", express.static(__dirname + "/../client/"));
+=======
+const port = 80;
+const server = "localhost";
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, playerId");
+    next();
+  });
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use("/", express.static(__dirname + "/../dist/"));
+>>>>>>> master
 app.use('/game', game);
 
 app.listen(port);
 
+<<<<<<< HEAD
+=======
+// eslint-disable-next-line no-console
+>>>>>>> master
 console.log(`listening on: http://${server}:${port}`);
